@@ -1,4 +1,4 @@
-DOCKER_USER=macadmins
+DOCKER_USER=grahamgilbert
 ADMIN_PASS=pass
 IMAGR_PORT=8000
 DB_NAME=imagr
@@ -7,7 +7,7 @@ DB_USER=admin
 DB_CONTAINER_NAME:=postgres-imagr
 NAME:=imagr
 PLUGIN_DIR=/tmp/plugins
-DOCKER_RUN_COMMON=--name="$(NAME)" -p ${IMAGR_PORT}:8000 --link $(DB_CONTAINER_NAME):db -e ADMIN_PASS=${ADMIN_PASS} -e DB_NAME=$(DB_NAME) -e DB_USER=$(DB_USER) -e DB_PASS=$(DB_PASS) -v /tmp/logs:/var/log/nginx ${DOCKER_USER}/imagr_server
+DOCKER_RUN_COMMON=--name="$(NAME)" -p ${IMAGR_PORT}:8000 --link $(DB_CONTAINER_NAME):db -e ADMIN_PASS=${ADMIN_PASS} -e DB_NAME=$(DB_NAME) -e DB_USER=$(DB_USER) -e DB_PASS=$(DB_PASS) -v /tmp/logs:/var/log/nginx ${DOCKER_USER}/imagr-server
 
 
 all: build
@@ -25,7 +25,7 @@ interactive:
 	docker run -i ${DOCKER_RUN_COMMON}
 
 bash:
-	docker run -t -i ${DOCKER_RUN_COMMON} /bin/bash
+	docker run -t -i --rm ${DOCKER_RUN_COMMON} /bin/bash
 
 clean:
 	docker stop $(NAME)
