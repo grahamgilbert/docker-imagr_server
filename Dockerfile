@@ -55,10 +55,8 @@ RUN update-rc.d -f postgresql remove && \
     rm -f /etc/nginx/sites-enabled/default && \
     mkdir -p /home/app && \
     mkdir -p /home/backup && \
-    ln -s $APP_DIR /home/app/sal
+    ln -s $APP_DIR /home/app/imagr
 
 EXPOSE 8000
 
 CMD ["/run.sh"]
-
-#VOLUME ["$APP_DIR/plugins", "$APP_DIR/sal/settings.py"]
