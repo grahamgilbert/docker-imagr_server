@@ -1,4 +1,4 @@
-# Sal Dockerfile
+# Imagr Dockerfile
 # Version 0.3
 FROM ubuntu:14.04.1
 

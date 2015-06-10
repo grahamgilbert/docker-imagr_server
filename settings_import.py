@@ -2,7 +2,7 @@
 from os import getenv
 import locale
 
-# Read list of admins from $DOCKER_SAL_ADMINS env var
+# Read list of admins from $DOCKER_IMAGR_ADMINS env var
 admin_list = []
 if getenv('DOCKER_IMAGR_ADMINS'):
     admins_var = getenv('DOCKER_IMAGR_ADMINS')
@@ -18,7 +18,7 @@ else:
                 ('Admin User', 'admin@test.com')
              )
 
-# Read the preferred time zone from $DOCKER_SAL_TZ, use system locale or
+# Read the preferred time zone from $DOCKER_IMAGR_TZ, use system locale or
 # set to 'America/New_York' if neither are set
 if getenv('DOCKER_IMAGR_TZ'):
     if '/' in getenv('DOCKER_IMAGR_TZ'):
@@ -29,7 +29,7 @@ elif getenv('TZ'):
 else:
     TIME_ZONE = 'America/New_York'
 
-# Read the preferred language code from $DOCKER_SAL_LANG, use system locale or
+# Read the preferred language code from $DOCKER_IMAGR_LANG, use system locale or
 # set to 'en_US' if neither are set
 if getenv('DOCKER_IMAGR_LANG'):
     if '_' in getenv('DOCKER_IMAGR_LANG'):
@@ -41,14 +41,14 @@ if getenv('DOCKER_IMAGR_LANG'):
 else:
     LANGUAGE_CODE = 'en_US'
 
-# Read the list of allowed hosts from the $DOCKER_SAL_ALLOWED env var, or
+# Read the list of allowed hosts from the $DOCKER_IMAGR_ALLOWED env var, or
 # allow all hosts if none was set.
 if getenv('DOCKER_IMAGR_ALLOWED'):
     ALLOWED_HOSTS = getenv('DOCKER_IMAGR_ALLOWED').split(',')
 else:
     ALLOWED_HOSTS = ['*']
 
-# Set the display name from the $DOCKER_SAL_DISPLAY_NAME env var, or
+# Set the display name from the $DOCKER_IMAGR_DISPLAY_NAME env var, or
 # use the default
 if getenv('DOCKER_IMAGR_DISPLAY_NAME'):
     DISPLAY_NAME = getenv('DOCKER_IMAGR_DISPLAY_NAME')
