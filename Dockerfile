@@ -12,8 +12,7 @@ ENV TZ Europe/London
 ENV DOCKER_IMAGR_TZ Europe/London
 ENV DOCKER_IMAGR_ADMINS Docker User, docker@localhost
 ENV DOCKER_IMAGR_LANG en_GB
-ENV DOCKER_IMAGR_DISPLAY_NAME Sal
-ENV DOCKER_IMAGR_PLUGIN_ORDER Activity,Status,OperatingSystem,Uptime,Memory
+ENV DOCKER_IMAGR_DISPLAY_NAME Imagr Server
 
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
