@@ -1,6 +1,6 @@
 # Imagr Dockerfile
 # Version 0.3
-FROM ubuntu:14.04.1
+FROM ubuntu:18.04
 
 MAINTAINER Graham Gilbert <graham@grahamgilbert.com>
 
@@ -28,14 +28,14 @@ RUN apt-get update && \
     python-dev \
     supervisor \
     nano \
+    python-pip \
     libffi-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN easy_install pip && \
-    git clone https://github.com/grahamgilbert/imagr_server.git $APP_DIR && \
+RUN git clone https://github.com/grahamgilbert/imagr_server.git $APP_DIR && \
     pip install -r $APP_DIR/requirements.txt && \
-    pip install psycopg2==2.5.3 && \
+    pip install psycopg2==2.8.2 && \
     pip install gunicorn && \
     pip install setproctitle
 
